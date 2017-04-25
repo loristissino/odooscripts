@@ -19,6 +19,6 @@ try:
     task = TodoTask.browse(task_id)
     task.user_id=user_id
     print "OK - Variazione utente effettuata"
-except Error as e:
+except:
     print "FAIL - Variazione utente fallita"
     
