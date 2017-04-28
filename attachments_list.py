@@ -8,5 +8,10 @@ not on its own
 Attachment = self.env['ir.attachment']
 # retrieves a Recordset Model for the Attachment class
 
-for attachment in Attachment.search([]):
-    print attachment.store_fname, attachment.mimetype, attachment.datas_fname, attachment.file_size
+for attachment in Attachment.search([('res_model', '!=', False)]):
+    print attachment.store_fname, attachment.mimetype, attachment.datas_fname, attachment.file_size, attachment.res_model
+
+
+print "Files are stored in %s/filestore/%s" % (
+    odoo.tools.config.options['data_dir'], odoo.tools.config.options['db_name']
+    )
