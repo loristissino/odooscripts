@@ -14,6 +14,6 @@ for i in range(10):
     newtask = TodoTask.create( { 'name': 'New task %03d' % i, 'is_done': is_done } )
     print "created task, id=", newtask.id
 
-# self.env.cr.commit()
+self.env.cr.commit()
 # to make the changes persistent, uncomment the preceding line,
 # that should be the last instruction executed

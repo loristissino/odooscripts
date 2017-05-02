@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 '''
-This script is meant to be executed inside the odoo shell,
-not on its own
+This script is meant to be executed inside the odoo shell, not on its own
 '''
+
 
 def print_tasks(tasks):
     for task in tasks:
-        print "\t".join([str(task.id), task.name, str(task.is_done) ])
+        print "\t".join([str(task.id), task.name, str(task.is_done)])
         # prints relevant info of the tasks
 
 
@@ -16,19 +16,20 @@ TodoTask = self.env['todo.task']
 
 tasks = TodoTask.search([])
 # retrieves all active tasks
+# (by default, tasks with active set to False are excluded)
 
-print "Task attivi (non eliminati)"
+print "Active tasks (not deleted):"
 print_tasks(tasks)
-  
-tasks = TodoTask.search([ ('is_done', '=', True) ])
+
+tasks = TodoTask.search([('is_done', '=', True)])
 # retrieves current tasks (ie, not marked as done)
 # see https://www.odoo.com/documentation/saas-13/reference/orm.html#domains
 
-print "Task correnti (ancora da completare)"
+print "Current tasks (not done):"
 print_tasks(tasks)
 
-tasks = TodoTask.search([ ('active', '=', False) ])
+tasks = TodoTask.search([('active', '=', False)])
 # retrieves deleted tasks (ie, marked as not active)
 
-print "Task eliminati"
+print "Deleted tasks:"
 print_tasks(tasks)
