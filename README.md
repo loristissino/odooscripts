@@ -15,4 +15,4 @@ inside an Odoo Shell (command line). More info (in Italian) at the
 
 To run a script do something like:
 
-    odoo-bin shell -d databasename < scriptname
+    ./odoo-bin shell -d databasename < scriptname.py
